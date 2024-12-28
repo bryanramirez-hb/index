@@ -1,0 +1,110 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Royalties Software</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background-color: #f8f9fa;
+        }
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            padding: 20px;
+            box-sizing: border-box;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #343a40;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        table th, table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        table th {
+            background-color: #007bff;
+            color: white;
+        }
+        .chart-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+        }
+        .chart {
+            width: 100%;
+            max-width: 800px;
+            height: 400px;
+            margin: 20px 0;
+        }
+        input[type="file"], button {
+            display: block;
+            margin: 20px auto;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: #007bff;
+            color: white;
+            font-size: 1rem;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="MusicRoyalties.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Music Royalties Software</h1>
+        <input type="file" id="fileInput" accept=".xlsx,.xls">
+        <button id="processButton">Process File</button>
+        <table id="breakdownTable">
+            <thead>
+                <tr>
+                    <th>Product Code</th>
+                    <th>Imprint Label</th>
+                    <th>Artist Name</th>
+                    <th>Product Name</th>
+                    <th>Track Name</th>
+                    <th>Track Artist</th>
+                    <th>ISRC</th>
+                    <th>UPC</th>
+                    <th>Revenue</th>
+                    <th>Source</th>
+                    <th>Unit</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td colspan="11" style="text-align: center;">No data available</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="chart-container">
+            <canvas id="revenueChart" class="chart"></canvas>
+            <canvas id="sourceChart" class="chart"></canvas>
+        </div>
+    </div>
+</body>
+</html>
